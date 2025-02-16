@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Home </title>
+    <title>Home</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_buthome.css') }}">
 </head>
 <body>
-    <h1><p style="color: white;">This is my homepage</p></h1>
+    <h1>This is my homepage</h1>
+    
+    <!-- ปุ่มสำหรับไปยังหน้า Login -->
+    <a href="{{ url_for('login') }}" class="btn">เข้าสู่ระบบ</a>
 </body>
 </html>
