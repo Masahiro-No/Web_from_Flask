@@ -1,0 +1,7 @@
+<head>
+    <meta charset="UTF-8">
+    <title> Home </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<h2>ยินดีต้อนรับ {{ username }}!</h2>
+<a href="{{ url_for('logout') }}">ออกจากระบบ</a>
