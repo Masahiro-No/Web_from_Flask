@@ -5,12 +5,13 @@
     <title>Home</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_buthome.css') }}">
+
 </head>
 <body>
     <h1>This is my homepage</h1>
     
     <!-- ปุ่มสำหรับไปยังหน้า Login -->
-    <a href="{{ url_for('login') }}" class="btn">เข้าสู่ระบบ</a>
-    <a href="{{ url_for('register') }}" class="btn">สมัครสมาชิก</a>
+    <a href="{{ url_for('login') }}" class="btn-home">เข้าสู่ระบบ</a>
+    <a href="{{ url_for('register') }}" class="btn-home">สมัครสมาชิก</a>
 </body>
 </html>

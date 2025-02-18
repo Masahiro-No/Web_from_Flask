@@ -1,0 +1,36 @@
+/* จัดตำแหน่งแถบปุ่ม */
+.button-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; /* 2/3 ของหน้าจอ */
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ปุ่มขยายเต็มพื้นที่ container */
+.btn-upper {
+    flex: 1;  /* ขยายให้เต็ม container */
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #007BFF, #00BFFF);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    margin: 0 5px; /* ระยะห่างระหว่างปุ่ม */
+}
+
+/* เอฟเฟกต์ hover */
+.btn-upper:hover {
+    background: linear-gradient(45deg, #0056b3, #0080ff);
+    transform: scale(1.05);
+}
