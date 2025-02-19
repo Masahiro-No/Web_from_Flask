@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>ชมรมคนรักรางดาว</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_buthome.css') }}">
 
 </head>
 <body>
-    <h1>This is my homepage</h1>
+    <!-- รูปภาพแสดงก่อน -->
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="intro-logo">
+
+    <h1 class="welcome-text">Welcome to ชมรมคนรักรางดาว</h1>
     
-    <!-- ปุ่มสำหรับไปยังหน้า Login -->
-    <a href="{{ url_for('login') }}" class="btn-home">เข้าสู่ระบบ</a>
-    <a href="{{ url_for('register') }}" class="btn-home">สมัครสมาชิก</a>
+    <div class="btn-container">
+        <a href="{{ url_for('login') }}" class="btn-home">เข้าสู่ระบบ</a>
+        <a href="{{ url_for('register') }}" class="btn-home">สมัครสมาชิก</a>
+    </div>
 </body>
 </html>
