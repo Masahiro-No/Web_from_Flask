@@ -82,6 +82,11 @@ def login():
 def dashboard():
     return render_template('dashboard.html', username=current_user.username)
 
+@app.route('/Belebog')
+@login_required
+def Belebog():
+    return render_template('Belebog.html', username=current_user.username)
+
 @app.route('/logout')
 @login_required
 def logout():

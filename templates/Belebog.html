@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/fordash.css') }}">
+    <title>Belebog</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/upper_but.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forBelebog.css') }}">
 </head>
 <body>
-    
-    <video autoplay loop muted playsinline class="bg-video">
-        <source src="/static/img/dashback.mp4" type="video/mp4">
-
-    </video>
     <div class="button-container">
         <div class="button-left">
             <button class="btn-upper">Home</button>
@@ -24,9 +19,7 @@
             <button class="btn-upper" type="button" onclick="window.location.href='/login'">ออกจากระบบ</button>
         </div>
     </div>
-    <h1 class="welcome-text">ยินดีต้อนรับ {{ username }}!</h1>
-    <!-- <a href="{{ url_for('logout') }}">ออกจากระบบ</a> -->
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <h1 class="welcome-text">เรื่องราวในอดีต...จะต้องถูกแก้ไข</h1>
+
 </body>
-</html>
