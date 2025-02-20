@@ -1,0 +1,104 @@
+/* รีเซ็ตค่าเริ่มต้นของ CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ตั้งค่าพื้นหลังเริ่มต้น */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #000000, #242626); /* พื้นหลังเริ่มต้น */
+    color: white;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* เพื่อให้ไม่เกิดการเลื่อน */
+}
+
+/* ใช้ ::before เพื่อสร้างเลเยอร์ภาพพื้นหลัง */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/homepic.jpg") center/cover no-repeat;
+    filter: brightness(0.5); /* ความสว่างเริ่มต้น */
+    z-index: -1; /* ให้ภาพอยู่ใต้เนื้อหา */
+    animation: darkenBackground 5s ease-in-out forwards; /* ทำให้ภาพเข้มขึ้น */
+}
+
+/* รูปภาพโลโก้ */
+.intro-logo {
+    width: 800px;
+    position: absolute;
+    opacity: 1;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+/* หัวข้อหลัก */
+.welcome-text {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6); /* เพิ่มเงาดำ */
+    opacity: 1;
+    position: absolute;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+/* ปุ่มต่างๆ */
+.btn-container {
+    margin-top: 200px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInMove 1.5s ease-in-out forwards;
+    animation-delay: 6.5s; /* ปรากฏหลังข้อความ 1.5 วินาที */
+}
+
+/* แอนิเมชันการทำให้พื้นหลังเข้มขึ้น */
+@keyframes darkenBackground {
+    0% {
+        filter: brightness(0.5); /* พื้นหลังปกติ */
+    }
+    100% {
+        filter: brightness(0.3); /* ทำให้เข้มขึ้น */
+    }
+}
+
+/* แอนิเมชันรูปภาพจางหายไป */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* แอนิเมชันข้อความปรากฏ */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* แอนิเมชันปุ่มเลื่อนขึ้นและค่อยๆ ปรากฏ */
+@keyframes fadeInMove {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

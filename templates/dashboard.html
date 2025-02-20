@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fordash.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/upper_but.css') }}">
 </head>
 <body>
-    <!-- แถบปุ่ม -->
+
     <div class="button-container">
-        <button class="btn-upper">ปุ่ม 1</button>
-        <button class="btn-upper">ปุ่ม 2</button>
-        <button class="btn-upper">ปุ่ม 3</button>
+        <div class="button-left">
+            <button class="btn-upper">Home</button>
+            <button class="btn-upper">Story</button>
+            <button class="btn-upper">ปุ่ม 3</button>
+        </div>
+        <div class="button-right">
+            <button class="btn-upper">โปรไฟล์</button>
+            <button class="btn-upper" type="button" onclick="window.location.href='/login'">ออกจากระบบ</button>
+        </div>
     </div>
+    <h1 class="welcome-text">ยินดีต้อนรับ {{ username }}!</h1>
+    <!-- <a href="{{ url_for('logout') }}">ออกจากระบบ</a> -->
 
-    <h1>ยินดีต้อนรับ {{ username }}!</h1>
-    <a href="{{ url_for('logout') }}">ออกจากระบบ</a>
-
-    <!-- เรียกใช้ JavaScript -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

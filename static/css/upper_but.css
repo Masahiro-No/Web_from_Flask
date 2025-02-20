@@ -4,13 +4,14 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 50%; /* 2/3 ของหน้าจอ */
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background: rgba(0, 0, 0, 0.8);
     padding: 15px;
     border-radius: 0 0 15px 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 10px rgba(203, 187, 187, 0.3);
     
     /* เริ่มต้นซ่อน */
     opacity: 0;
@@ -20,20 +21,31 @@
     animation: showInitial 5s ease-in-out;
 }
 
+/* ปุ่มด้านซ้าย */
+.button-left {
+    display: flex;
+    gap: 10px;
+}
+
+/* ปุ่มด้านขวา */
+.button-right {
+    display: flex;
+    gap: 10px;
+}
+
 /* ปุ่มขยายเต็มพื้นที่ container */
 .btn-upper {
-    flex: 1;  
-    padding: 15px;
+    width: 125px;  /* กำหนดความกว้างคงที่ */
+    height: 50px;  /* กำหนดความสูงคงที่ */
     font-size: 18px;
     font-weight: bold;
     color: white;
-    background: linear-gradient(45deg, #007BFF, #00BFFF);
+    background: linear-gradient(45deg, #120917, #613c79);
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
     text-align: center;
-    margin: 0 5px;
 }
 
 /* เอฟเฟกต์ hover */
