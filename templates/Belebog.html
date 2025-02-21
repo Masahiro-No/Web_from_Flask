@@ -24,15 +24,38 @@
     <h1 class="welcome-text">เรื่องราวในอดีต...จะต้องถูกแก้ไข</h1>
 
 
-    <div class="container">
-        <div class="left">
-            <img src="{{ url_for('static', filename='img/Belobog.jpg') }}" alt="Belobog" class="background-image">
-        </div>
-        <div class="right">
-            <h1 class="welcome-text">เรื่องราวในอดีต...จะต้องถูกแก้ไข</h1>
-            <h2><p>เนื้อเรื่องของดาวดวงนี้</p></h2>
-            <h3>เมื่อราวพันปีก่อน ลมหนาวนิรันดร์ที่พัดมาถึงได้นำพาความหนาวเหน็บตลอดกาลมาเยือน ทำให้ผืนดินกลายเป็นสีขาวบริสุทธิ์ โชคดีที่พลังของ "การอนุรักษ์" ได้มอบพรให้กับ Belobog แม้ว่าที่แห่งนี้จะถูกพายุหิมะรุกราน แต่มนุษยชาติก็ยังคงดำรงชีวิตอยู่ และเรื่องราวของ Belobog ก็เริ่มต้นขึ้น</h3>
-        </div>
+<!-- กล่องแรก: รูปซ้าย ข้อความขวา -->
+<div class="container">
+    <div class="left">
+        <img src="/static/img/belebogpic.png" alt="Belobog" class="background-image">
     </div>
+    <div class="right">
+        <h2 class="story-title">เนื้อเรื่องของดาวดวงนี้</h2>
+        <p class="story-text">
+            เมื่อราวพันปีก่อน ลมหนาวนิรันดร์ที่พัดมาถึงได้นำพาความหนาวเหน็บตลอดกาลมาเยือน  
+            ทำให้ผืนดินกลายเป็นสีขาวบริสุทธิ์  
+            โชคดีที่พลังของ <span class="highlight">"การอนุรักษ์"</span> ได้มอบพรให้กับ <span class="highlight">Belobog</span>  
+            แม้ว่าที่แห่งนี้จะถูกพายุหิมะรุกราน แต่มนุษยชาติก็ยังคงดำรงชีวิตอยู่  
+            และเรื่องราวของ <span class="highlight">Belobog</span> ก็เริ่มต้นขึ้น...
+        </p>
+    </div>
+</div>
 
+<!-- กล่องที่สอง: รูปขวา ข้อความซ้าย (ใช้ .reverse) -->
+<div class="container reverse">
+    <div class="left">
+        <img src="/static/img/belabogpic2.png" alt="Belobog Beauty" class="background-image">
+    </div>
+    <div class="right">
+        <h2 class="impression-title">ความประทับใจในดาวดวงนี้</h2>
+        <p class="impression-text">
+            Belobog เป็นดินแดนที่เต็มไปด้วยหิมะและแสงแห่งความหวัง  
+            แม้ว่าจะต้องเผชิญกับลมหนาวที่โหมกระหน่ำ แต่ผู้คนที่นี่กลับเปี่ยมไปด้วยความอบอุ่น  
+            ไม่ใช่เพราะอุณหภูมิของดินแดน แต่เป็นเพราะ **"จิตใจของผู้คน"** ที่ยังคงไม่ยอมแพ้  
+            ทุกซอกมุมของเมืองแห่งนี้ล้วนมีเรื่องราวที่น่าประทับใจซ่อนอยู่  
+        </p>
+    </div>
+</div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

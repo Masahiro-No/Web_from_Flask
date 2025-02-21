@@ -57,7 +57,7 @@ body::before {
     opacity: 0;
     transform: translateY(10px);
     animation: fadeInMove 1.5s ease-in-out forwards;
-    animation-delay: 6.5s; /* ปรากฏหลังข้อความ 1.5 วินาที */
+    animation-delay: 1.5s; /* ปรากฏหลังข้อความ 1.5 วินาที */
 }
 
 /* ตั้งค่าวิดีโอเป็นพื้นหลัง */

@@ -11,19 +11,18 @@ body {
     background-color: black;/* background: linear-gradient(to right, #000000, #242626); */
     color: white;
     text-align: center;
-    height: 100vh;
+    min-height: 100vh; /* เปลี่ยนจาก height: 100vh เป็น min-height */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     position: relative;
-    overflow: hidden; /* เพื่อให้ไม่เกิดการเลื่อน */
+    overflow-x: hidden; /* แค่ปิดการเลื่อนซ้ายขวา แต่ยังเลื่อนขึ้นลงได้ */
 }
 
 /* ใช้ ::before เพื่อสร้างเลเยอร์ภาพพื้นหลัง */
 body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -62,53 +61,63 @@ body::before {
     animation-delay: 6.5s; /* ปรากฏหลังข้อความ 1.5 วินาที */
 }
 
-/* คอนเทนเนอร์หลัก แบ่งออกเป็น 2 ส่วน */
+/* คอนเทนเนอร์หลัก */
 .container {
+    padding-top: 35px;
+    margin-top: 15px;
     display: flex;
     width: 90%;
     height: 80vh;
     opacity: 0;
     border-radius: 15px;
-    overflow: hidden;
+    overflow-y: hidden;
     animation: fadeIn 3s ease-in-out forwards;
     animation-delay: 8s;
 }
 
-/* ส่วนซ้าย - รูปภาพ */
+/* กล่องซ้าย (ปกติ) */
 .left {
     flex: 1;
-    background-color: #111;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    padding: 20px;
+    text-align: center;
 }
 
-.background-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: darkenBackground 5s ease-in-out forwards;
-    animation-delay: 5s;
-}
-
-/* ส่วนขวา - ข้อความ */
+/* กล่องขวา (ปกติ) */
 .right {
     flex: 1;
-    background-color: rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
     text-align: center;
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards;
-    animation-delay: 6s;
+}
+
+/* รูปภาพ */
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    animation: fadeIn 5s ease-in-out forwards;
+    animation-delay: 5s;
+}
+
+/* กล่องที่ต้องการสลับตำแหน่ง (ใช้ order แทน row-reverse) */
+.container.reverse .left {
+    order: 2; /* สลับให้รูปไปอยู่ขวา */
+}
+
+.container.reverse .right {
+    order: 1; /* สลับให้ข้อความไปอยู่ซ้าย */
 }
 
 /* ข้อความ */
 .welcome-text {
+    padding-top: 350px;
     font-size: 2.5rem;
     font-weight: bold;
     opacity: 1;
@@ -121,9 +130,30 @@ body::before {
     opacity: 0;
     transform: translateY(10px);
     animation: fadeInMove 1.5s ease-in-out forwards;
-    animation-delay: 6.5s;
+    animation-delay: 1.5s;
 }
 
+/* หัวข้อ */
+.story-title, .impression-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* เนื้อหาข้อความ */
+.story-text, .impression-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ddd;
+    text-align: justify;
+}
+
+/* ไฮไลต์คำสำคัญ */
+.highlight {
+    color: #ffcc00;
+    font-weight: bold;
+}
 
 
 /* แอนิเมชันการทำให้พื้นหลังเข้มขึ้น */
