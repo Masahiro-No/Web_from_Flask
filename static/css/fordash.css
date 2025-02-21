@@ -7,17 +7,15 @@
 
 /* ตั้งค่าพื้นหลังเริ่มต้น */
 body {
-    font-family: Arial, sans-serif;
-    /* background: linear-gradient(to right, #000000, #242626); */
-    color: white;
-    text-align: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden; /* เพื่อให้ไม่เกิดการเลื่อน */
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  min-height: 100vh; /* เปลี่ยนจาก height: 100vh เป็น min-height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden; /* แค่ปิดการเลื่อนซ้ายขวา แต่ยังเลื่อนขึ้นลงได้ */
 }
 
 /* ใช้ ::before เพื่อสร้างเลเยอร์ภาพพื้นหลัง */
@@ -44,6 +42,7 @@ body::before {
 
 /* หัวข้อหลัก */
 .welcome-text {
+    padding-top: 325px;
     font-size: 3rem;
     font-weight: bold;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6); /* เพิ่มเงาดำ */
@@ -90,13 +89,14 @@ body::before {
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-    opacity: 0;
-    animation-delay: 5s; /* รอ 5 วินาทีก่อนที่จะเริ่มแอนิเมชัน */
-    animation: fadeIn 5s ease-in-out forwards;
-  }
+  padding-top: 75px; /* เพิ่มระยะห่างด้านบน */
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  opacity: 0;
+  animation-delay: 5s; /* รอ 5 วินาทีก่อนที่จะเริ่มแอนิเมชัน */
+  animation: fadeIn 5s ease-in-out forwards;
+}
   
   /* Hide the images by default */
   .mySlides {
@@ -144,7 +144,7 @@ body::before {
     font-size: 15px;
     padding: 8px 12px;
     position: absolute;
-    bottom: 25px;
+    bottom: 50px;
     width: 100%;
     text-align: center;
   }
@@ -153,9 +153,9 @@ body::before {
   .numbertext {
     color: #f2f2f2;
     font-size: 12px;
-    padding: 8px 12px;
+    padding: 25px 25px;
     position: absolute;
-    top: 0;
+    top: 100px;
   }
   
   /* The dots/bullets/indicators */
@@ -166,6 +166,43 @@ body::before {
     bottom: 10px; /* ให้ dot อยู่ใต้รูปภาพเล็กน้อย */
   }
   
+  /* Gameplay Section */
+  .gameplay-section {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    margin: 50px auto 80px; /* เพิ่ม margin ด้านล่างเพื่อให้เลื่อนดูได้ */
+    width: 80%;
+    max-width: 800px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.gameplay-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #FFD700; /* สีทอง */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.gameplay-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: white;
+}
+
+.gameplay-section ul {
+  text-align: left;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+.gameplay-section li {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin: 8px 0;
+}
   
   /* Fading animation */
   .fade {
