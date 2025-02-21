@@ -17,16 +17,70 @@
         <div class="button-left">
             <button class="btn-upper">Home</button>
             <button class="btn-upper">Story</button>
-            <button class="btn-upper">ปุ่ม 3</button>
+            <button class="btn-upper">Contact</button>
         </div>
         <div class="button-right">
             <button class="btn-upper">โปรไฟล์</button>
             <button class="btn-upper" type="button" onclick="window.location.href='/login'">ออกจากระบบ</button>
         </div>
     </div>
+
+    <!-- Slideshow container -->
+<div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 6</div>
+        <img src="/static/img/hertastation.png" style="width:100%">
+        <div class="text">Herta Station</div>
+      </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 6</div>
+        <img src="/static/img/homepic.jpg" style="width:100%">
+        <div class="text">Astral Express</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 6</div>
+      <img src="/static/img/Belobog.jpg" style="width:100%">
+      <div class="text">Belebog</div>
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 6</div>
+      <img src="/static/img/xianzhou.png" style="width:100%">
+      <div class="text">Xianzhou Luofu</div>
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertext">5 / 6</div>
+      <img src="/static/img/penacony.png" style="width:100%">
+      <div class="text">Penacony</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">6 / 6</div>
+        <img src="/static/img/amphoreus.png" style="width:100%">
+        <div class="text">Amphoreus</div>
+    </div>
+  
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
     <h1 class="welcome-text">ยินดีต้อนรับ {{ username }}!</h1>
     <!-- <a href="{{ url_for('logout') }}">ออกจากระบบ</a> -->
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/banner.js') }}"></script>
 </body>
 </html>

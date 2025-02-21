@@ -88,6 +88,97 @@ body::before {
 
 
 
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    opacity: 0;
+    animation-delay: 5s; /* รอ 5 วินาทีก่อนที่จะเริ่มแอนิเมชัน */
+    animation: fadeIn 5s ease-in-out forwards;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 50px; /* กำหนดขนาดปุ่ม */
+    height: 50px;
+    margin-top: -25px; /* กึ่งกลางแนวตั้ง */
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s ease;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5); /* ปรับสีพื้นหลังปุ่มให้มองเห็น */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+  
+  /* Position the buttons to be inside the image */
+  .prev {
+    left: 10px; /* อยู่ที่ขอบซ้ายของรูปภาพ */
+  }
+  
+  .next {
+    right: 10px; /* อยู่ที่ขอบขวาของรูปภาพ */
+  }
+  
+  /* On hover, make the background darker */
+  .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dots-container {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 10px; /* ให้ dot อยู่ใต้รูปภาพเล็กน้อย */
+  }
+  
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 3s;
+  }
+  
+  @keyframes fade {
+    from { opacity: 0.4 }
+    to { opacity: 1 }
+  }
+  
+
 /* แอนิเมชันการทำให้พื้นหลังเข้มขึ้น */
 @keyframes darkenBackground {
     0% {
