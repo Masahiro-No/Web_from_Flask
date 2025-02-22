@@ -138,6 +138,21 @@ def AstralExpress():
     comments = Comment.query.filter_by(page='AstralExpress').order_by(Comment.timestamp.desc()).all()
     return render_template('AstralExpress.html', username=current_user.username, comments=comments)
 
+@app.route('/Xianzhou', methods=['GET', 'POST'])
+@login_required
+def Xianzhou():
+    if request.method == 'POST':
+        content = request.form.get('content')
+        if content:
+            new_comment = Comment(user_id=current_user.id, content=content, page='Xianzhou')
+            db.session.add(new_comment)
+            db.session.commit()
+            flash('แสดงความคิดเห็นสำเร็จ!', 'success')
+            return redirect(url_for('Xianzhou'))
+
+    comments = Comment.query.filter_by(page='Xianzhou').order_by(Comment.timestamp.desc()).all()
+    return render_template('Xianzhou.html', username=current_user.username, comments=comments)
+
 @app.route('/logout')
 @login_required
 def logout():
