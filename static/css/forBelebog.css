@@ -161,6 +161,10 @@ body::before {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 95vw;  /* ขยายให้ container กว้างขึ้น */
+    max-width: 1300px; /* กำหนดขนาดกว้างสุด */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .comment-section h2 {
@@ -174,6 +178,7 @@ body::before {
 
 .comment-item {
     background: #f4f4f4;
+    color: #000; /* เปลี่ยนเป็นสีดำ */
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
@@ -184,6 +189,19 @@ body::before {
     color: #888;
 }
 
+.comment-box {
+    width: 90vw;  /* ขยายความกว้างเป็น 90% ของขนาดหน้าจอ */
+    max-width: 1200px; /* จำกัดความกว้างสูงสุด */
+    height: 150px; /* ปรับความสูง */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* ให้ปรับความสูงเองได้ */
+    display: block;
+    margin: 10px auto; /* จัดให้อยู่ตรงกลาง */
+}
+
 .comment-btn {
     background-color: #007bff;
     color: white;
@@ -191,12 +209,12 @@ body::before {
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 .comment-btn:hover {
     background-color: #0056b3;
 }
-
 
 /* แอนิเมชันการทำให้พื้นหลังเข้มขึ้น */
 @keyframes darkenBackground {
