@@ -1,0 +1,268 @@
+/* รีเซ็ตค่าเริ่มต้นของ CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ตั้งค่าพื้นหลังเริ่มต้น */
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;/* background: linear-gradient(to right, #000000, #242626); */
+    color: white;
+    text-align: center;
+    min-height: 100vh; /* เปลี่ยนจาก height: 100vh เป็น min-height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden; /* แค่ปิดการเลื่อนซ้ายขวา แต่ยังเลื่อนขึ้นลงได้ */
+}
+
+/* ใช้ ::before เพื่อสร้างเลเยอร์ภาพพื้นหลัง */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/xianzhou.png") center/cover no-repeat;
+    filter: brightness(0); /* ความสว่างเริ่มต้น */
+    z-index: -1; /* ให้ภาพอยู่ใต้เนื้อหา */
+    animation: darkenBackground 5s ease-in-out forwards; /* ทำให้ภาพเข้มขึ้น */
+    animation-delay: 5s; /* รอ 5 วินาทีก่อนที่จะเริ่มแอนิเมชัน */
+}
+
+/* รูปภาพโลโก้ */
+.intro-logo {
+    width: 800px;
+    position: absolute;
+    opacity: 1;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+/* หัวข้อหลัก */
+.welcome-text {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6); /* เพิ่มเงาดำ */
+    opacity: 1;
+    position: absolute;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+/* ปุ่มต่างๆ */
+.btn-container {
+    margin-top: 200px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInMove 1.5s ease-in-out forwards;
+    animation-delay: 6.5s; /* ปรากฏหลังข้อความ 1.5 วินาที */
+}
+
+/* คอนเทนเนอร์หลัก */
+.container {
+    padding-top: 35px;
+    margin-top: 15px;
+    display: flex;
+    width: 90%;
+    height: 80vh;
+    opacity: 0;
+    border-radius: 15px;
+    overflow-y: hidden;
+    animation: fadeIn 3s ease-in-out forwards;
+    animation-delay: 8s;
+}
+
+/* กล่องซ้าย (ปกติ) */
+.left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+/* กล่องขวา (ปกติ) */
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+/* รูปภาพ */
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    animation: fadeIn 5s ease-in-out forwards;
+    animation-delay: 5s;
+}
+
+/* กล่องที่ต้องการสลับตำแหน่ง (ใช้ order แทน row-reverse) */
+.container.reverse .left {
+    order: 2; /* สลับให้รูปไปอยู่ขวา */
+}
+
+.container.reverse .right {
+    order: 1; /* สลับให้ข้อความไปอยู่ซ้าย */
+}
+
+/* ข้อความ */
+.welcome-text {
+    padding-top: 350px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    opacity: 1;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+/* เอฟเฟกต์ปุ่ม */
+.btn-container {
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInMove 1.5s ease-in-out forwards;
+    animation-delay: 1.5s;
+}
+
+/* หัวข้อ */
+.story-title, .impression-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* เนื้อหาข้อความ */
+.story-text, .impression-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ddd;
+    text-align: justify;
+}
+
+/* ไฮไลต์คำสำคัญ */
+.highlight {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.comment-section {
+    margin-top: 50px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 95vw;  /* ขยายให้ container กว้างขึ้น */
+    max-width: 1300px; /* กำหนดขนาดกว้างสุด */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comment-section h2 {
+    color: #333;
+}
+
+.comment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-item {
+    background: #f4f4f4;
+    color: #000; /* เปลี่ยนเป็นสีดำ */
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.comment-time {
+    font-size: 12px;
+    color: #888;
+}
+
+.comment-box {
+    width: 90vw;  /* ขยายความกว้างเป็น 90% ของขนาดหน้าจอ */
+    max-width: 1200px; /* จำกัดความกว้างสูงสุด */
+    height: 150px; /* ปรับความสูง */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* ให้ปรับความสูงเองได้ */
+    display: block;
+    margin: 10px auto; /* จัดให้อยู่ตรงกลาง */
+}
+
+.comment-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.comment-btn:hover {
+    background-color: #0056b3;
+}
+
+.my-comment {
+    color: #007bff; /* คอมเมนต์ของตัวเองเป็นสีน้ำเงิน */
+    font-weight: bold;
+}
+
+.other-comment {
+    color: #000; /* คอมเมนต์ของคนอื่นเป็นสีดำ */
+}
+
+/* แอนิเมชันการทำให้พื้นหลังเข้มขึ้น */
+@keyframes darkenBackground {
+    0% {
+        filter: brightness(0); /* พื้นหลังปกติ */
+    }
+    100% {
+        filter: brightness(0.7); /* ทำให้เข้มขึ้น */
+    }
+}
+
+/* แอนิเมชันรูปภาพจางหายไป */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* แอนิเมชันข้อความปรากฏ */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* แอนิเมชันปุ่มเลื่อนขึ้นและค่อยๆ ปรากฏ */
+@keyframes fadeInMove {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
