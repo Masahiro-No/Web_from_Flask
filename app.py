@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_bcrypt import Bcrypt
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -10,6 +11,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+migrate = Migrate(app, db)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -25,7 +27,7 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     content = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.DateTime, default=db.func.current_timestamp())
-
+    page = db.Column(db.String(50), nullable=False)  # เพิ่มคอลัมน์นี้
     user = db.relationship('User', backref=db.backref('comments', lazy=True))
 
 class User(db.Model, UserMixin):
@@ -96,14 +98,30 @@ def Belebog():
     if request.method == 'POST':
         content = request.form.get('content')
         if content:
-            new_comment = Comment(user_id=current_user.id, content=content)
+            new_comment = Comment(user_id=current_user.id, content=content, page='Belebog')
             db.session.add(new_comment)
             db.session.commit()
             flash('แสดงความคิดเห็นสำเร็จ!', 'success')
             return redirect(url_for('Belebog'))
 
-    comments = Comment.query.order_by(Comment.timestamp.desc()).all()
+    comments = Comment.query.filter_by(page='Belebog').order_by(Comment.timestamp.desc()).all()
     return render_template('Belebog.html', username=current_user.username, comments=comments)
+
+
+@app.route('/HertaStation', methods=['GET', 'POST'])
+@login_required
+def HertaStation():
+    if request.method == 'POST':
+        content = request.form.get('content')
+        if content:
+            new_comment = Comment(user_id=current_user.id, content=content, page='HertaStation')
+            db.session.add(new_comment)
+            db.session.commit()
+            flash('แสดงความคิดเห็นสำเร็จ!', 'success')
+            return redirect(url_for('HertaStation'))
+
+    comments = Comment.query.filter_by(page='HertaStation').order_by(Comment.timestamp.desc()).all()
+    return render_template('HertaStation.html', username=current_user.username, comments=comments)
 
 @app.route('/logout')
 @login_required
