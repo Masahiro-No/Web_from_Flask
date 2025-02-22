@@ -155,6 +155,48 @@ body::before {
     font-weight: bold;
 }
 
+.comment-section {
+    margin-top: 50px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section h2 {
+    color: #333;
+}
+
+.comment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-item {
+    background: #f4f4f4;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.comment-time {
+    font-size: 12px;
+    color: #888;
+}
+
+.comment-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.comment-btn:hover {
+    background-color: #0056b3;
+}
+
 
 /* แอนิเมชันการทำให้พื้นหลังเข้มขึ้น */
 @keyframes darkenBackground {

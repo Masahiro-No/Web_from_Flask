@@ -57,7 +57,24 @@
     </div>
 </div>
 
+<!-- ส่วนแสดงความคิดเห็น -->
+<div class="comment-section">
+    <h2>แสดงความคิดเห็น</h2>
+    <form method="POST">
+        <textarea name="content" rows="4" cols="50" placeholder="พิมพ์ความคิดเห็นของคุณที่นี่..." required></textarea><br>
+        <button type="submit" class="comment-btn">โพสต์ความคิดเห็น</button>
+    </form>
 
+    <h2>ความคิดเห็นทั้งหมด</h2>
+    <ul class="comment-list">
+        {% for comment in comments %}
+            <li class="comment-item">
+                <strong>{{ comment.user.username }}</strong>: {{ comment.content }} 
+                <span class="comment-time">({{ comment.timestamp.strftime('%Y-%m-%d %H:%M') }})</span>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
