@@ -68,7 +68,7 @@
     <h2>ความคิดเห็นทั้งหมด</h2>
     <ul class="comment-list">
         {% for comment in comments %}
-        <li class="comment-item">
+        <li class="comment-item {% if comment.user.id == current_user.id %}my-comment{% else %}other-comment{% endif %}">
             <strong>{{ comment.user.username }}</strong>: {{ comment.content }}
             <span class="comment-time">({{ comment.timestamp.strftime('%Y-%m-%d %H:%M') }})</span>
         </li>

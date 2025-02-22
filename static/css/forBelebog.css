@@ -216,6 +216,15 @@ body::before {
     background-color: #0056b3;
 }
 
+.my-comment {
+    color: #007bff; /* คอมเมนต์ของตัวเองเป็นสีน้ำเงิน */
+    font-weight: bold;
+}
+
+.other-comment {
+    color: #000; /* คอมเมนต์ของคนอื่นเป็นสีดำ */
+}
+
 /* แอนิเมชันการทำให้พื้นหลังเข้มขึ้น */
 @keyframes darkenBackground {
     0% {
