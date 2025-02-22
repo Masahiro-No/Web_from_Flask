@@ -20,6 +20,14 @@ login_manager.login_view = 'login'
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    timestamp = db.Column(db.DateTime, default=db.func.current_timestamp())
+
+    user = db.relationship('User', backref=db.backref('comments', lazy=True))
+
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
@@ -82,10 +90,20 @@ def login():
 def dashboard():
     return render_template('dashboard.html', username=current_user.username)
 
-@app.route('/Belebog')
+@app.route('/Belebog', methods=['GET', 'POST'])
 @login_required
 def Belebog():
-    return render_template('Belebog.html', username=current_user.username)
+    if request.method == 'POST':
+        content = request.form.get('content')
+        if content:
+            new_comment = Comment(user_id=current_user.id, content=content)
+            db.session.add(new_comment)
+            db.session.commit()
+            flash('แสดงความคิดเห็นสำเร็จ!', 'success')
+            return redirect(url_for('Belebog'))
+
+    comments = Comment.query.order_by(Comment.timestamp.desc()).all()
+    return render_template('Belebog.html', username=current_user.username, comments=comments)
 
 @app.route('/logout')
 @login_required
