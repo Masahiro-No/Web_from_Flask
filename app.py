@@ -123,6 +123,21 @@ def HertaStation():
     comments = Comment.query.filter_by(page='HertaStation').order_by(Comment.timestamp.desc()).all()
     return render_template('HertaStation.html', username=current_user.username, comments=comments)
 
+@app.route('/AstralExpress', methods=['GET', 'POST'])
+@login_required
+def AstralExpress():
+    if request.method == 'POST':
+        content = request.form.get('content')
+        if content:
+            new_comment = Comment(user_id=current_user.id, content=content, page='AstralExpress')
+            db.session.add(new_comment)
+            db.session.commit()
+            flash('แสดงความคิดเห็นสำเร็จ!', 'success')
+            return redirect(url_for('AstralExpress'))
+
+    comments = Comment.query.filter_by(page='AstralExpress').order_by(Comment.timestamp.desc()).all()
+    return render_template('AstralExpress.html', username=current_user.username, comments=comments)
+
 @app.route('/logout')
 @login_required
 def logout():
