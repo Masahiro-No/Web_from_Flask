@@ -168,6 +168,21 @@ def Penacony():
     comments = Comment.query.filter_by(page='Penacony').order_by(Comment.timestamp.desc()).all()
     return render_template('Penacony.html', username=current_user.username, comments=comments)
 
+@app.route('/Amphoreus', methods=['GET', 'POST'])
+@login_required
+def Amphoreus():
+    if request.method == 'POST':
+        content = request.form.get('content')
+        if content:
+            new_comment = Comment(user_id=current_user.id, content=content, page='Amphoreus')
+            db.session.add(new_comment)
+            db.session.commit()
+            flash('แสดงความคิดเห็นสำเร็จ!', 'success')
+            return redirect(url_for('Amphoreus'))
+
+    comments = Comment.query.filter_by(page='Amphoreus').order_by(Comment.timestamp.desc()).all()
+    return render_template('Amphoreus.html', username=current_user.username, comments=comments)
+
 @app.route('/logout')
 @login_required
 def logout():
