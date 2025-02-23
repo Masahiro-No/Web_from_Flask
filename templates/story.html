@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Gallery</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("../static/img/space.png") center/cover no-repeat;
+
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+
+        .grid-item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .grid-item h3 {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        .grid-item p {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <a href="sandwich.html">
+                <img src="/static/img/homepic.jpg" alt="Astral Express">
+                <h3>Astral Express</h3>
+                <p>A real NYC classic.</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="steak.html">
+                <img src="/static/img/hertastation.png" alt="Herta Station">
+                <h3>Herta Station</h3>
+                <p>Delicious and juicy.</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="cherry.html">
+                <img src="/static/img/Belobog.jpg" alt="Belobog">
+                <h3>Belebog</h3>
+                <p>Sweet and fresh.</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="wine.html">
+                <img src="/static/img/xianzhou.png" alt="Xianzhou Luofu">
+                <h3>Xianzhou Luofu</h3>
+                <p>Perfect pairing.</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="popsicle.html">
+                <img src="/static/img/penacony.png" alt="Penacony">
+                <h3>Penacony</h3>
+                <p>Cool and refreshing.</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="french.html">
+                <img src="/static/img/amphoreus.png" alt="Amphoreus">
+                <h3>Amphoreus</h3>
+                <p>Classic artisan bread.</p>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

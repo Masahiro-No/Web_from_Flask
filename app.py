@@ -92,6 +92,11 @@ def login():
 def dashboard():
     return render_template('dashboard.html', username=current_user.username)
 
+@app.route('/story')
+@login_required
+def story():
+    return render_template('story.html', username=current_user.username)
+
 @app.route('/Belebog', methods=['GET', 'POST'])
 @login_required
 def Belebog():
