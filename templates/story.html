@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upper_but.css') }}">
     <title>Story</title>
     <style>
         * {
@@ -81,6 +82,17 @@
     </style>
 </head>
 <body>
+  <div class="button-container">
+    <div class="button-left">
+        <button class="btn-upper" onclick="window.location.href='/dashboard'">Home</button>
+        <button class="btn-upper" onclick="window.location.href='/story'">Story</button>
+        <button class="btn-upper" onclick="window.location.href='/about'">Contact</button>
+    </div>
+    <div class="button-right">
+        <button class="btn-upper">โปรไฟล์</button>
+        <button class="btn-upper" type="button" onclick="window.location.href='/logout'">ออกจากระบบ</button>
+    </div>
+</div>
 
     <div class="grid-container">
         <div class="grid-item">
@@ -126,6 +138,6 @@
             </a>
         </div>
     </div>
-
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
