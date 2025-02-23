@@ -63,6 +63,7 @@ body::before {
 
 /* คอนเทนเนอร์หลัก */
 .container {
+    background: black;
     padding-top: 35px;
     margin-top: 15px;
     display: flex;
@@ -251,7 +252,7 @@ body::before {
         opacity: 0;
     }
     100% {
-        opacity: 1;
+        opacity: 0.8;
     }
 }
 

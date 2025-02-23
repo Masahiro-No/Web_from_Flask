@@ -30,40 +30,53 @@
 
     <!-- Full-width images with number and caption text -->
     <div class="mySlides fade">
-        <div class="numbertext">1 / 6</div>
-        <img src="/static/img/hertastation.png" style="width:100%">
-        <div class="text">Herta Station</div>
-      </div>
-
-    <div class="mySlides fade">
-        <div class="numbertext">2 / 6</div>
-        <img src="/static/img/homepic.jpg" style="width:100%">
-        <div class="text">Astral Express</div>
-    </div>
-
-    <div class="mySlides fade">
+      <div class="numbertext">1 / 6</div>
+      <a href="{{ url_for('HertaStation') }}">
+          <img src="{{ url_for('static', filename='img/hertastation.png') }}" style="width:100%">
+      </a>
+      <div class="text">Herta Station</div>
+  </div>
+  
+  <div class="mySlides fade">
+      <div class="numbertext">2 / 6</div>
+      <a href="{{ url_for('AstralExpress') }}">
+          <img src="{{ url_for('static', filename='img/homepic.jpg') }}" style="width:100%">
+      </a>
+      <div class="text">Astral Express</div>
+  </div>
+  
+  <div class="mySlides fade">
       <div class="numbertext">3 / 6</div>
-      <img src="/static/img/Belobog.jpg" style="width:100%">
+      <a href="{{ url_for('Belebog') }}">
+          <img src="{{ url_for('static', filename='img/Belobog.jpg') }}" style="width:100%">
+      </a>
       <div class="text">Belebog</div>
-    </div>
+  </div>
   
-    <div class="mySlides fade">
+  <div class="mySlides fade">
       <div class="numbertext">4 / 6</div>
-      <img src="/static/img/xianzhou.png" style="width:100%">
+      <a href="{{ url_for('Xianzhou') }}">
+          <img src="{{ url_for('static', filename='img/xianzhou.png') }}" style="width:100%">
+      </a>
       <div class="text">Xianzhou Luofu</div>
-    </div>
+  </div>
   
-    <div class="mySlides fade">
+  <div class="mySlides fade">
       <div class="numbertext">5 / 6</div>
-      <img src="/static/img/penacony.png" style="width:100%">
+      <a href="{{ url_for('Penacony') }}">
+          <img src="{{ url_for('static', filename='img/penacony.png') }}" style="width:100%">
+      </a>
       <div class="text">Penacony</div>
-    </div>
-
-    <div class="mySlides fade">
-        <div class="numbertext">6 / 6</div>
-        <img src="/static/img/amphoreus.png" style="width:100%">
-        <div class="text">Amphoreus</div>
-    </div>
+  </div>
+  
+  <div class="mySlides fade">
+      <div class="numbertext">6 / 6</div>
+      <a href="{{ url_for('Amphoreus') }}">
+          <img src="{{ url_for('static', filename='img/amphoreus.png') }}" style="width:100%">
+      </a>
+      <div class="text">Amphoreus</div>
+  </div>
+  
   
     <!-- Next and previous buttons -->
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
